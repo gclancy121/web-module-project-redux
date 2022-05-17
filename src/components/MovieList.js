@@ -31,4 +31,4 @@ const MovieList = (props)=> {
     );
 }
 
-export default connect(st => ({movies: st.movieReducer.movies, displayFavorites: st.movieReducer.displayFavorites}))(MovieList);
+export default connect(st => ({movies: st.movieReducer.movies, }))(MovieList);
