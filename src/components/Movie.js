@@ -14,6 +14,9 @@ const Movie = (props) => {
         props.deleteMovie(movie.id)
         push("/movies");
     }
+    const handleFavoriteClick = () => {
+        props.addFavorite(movie)
+    }
    
     
     return(<div className="modal-page col">
@@ -45,7 +48,7 @@ const Movie = (props) => {
                         </section>
                         
                         <section>
-                            <span className="m-2 btn btn-dark">Favorite</span>
+                            <span onClick={handleFavoriteClick}className="m-2 btn btn-dark">Favorite</span>
                             <span className="delete"><input onClick={handleDelete} type="button" className="m-2 btn btn-danger" value="Delete"/></span>
                         </section>
                     </div>
@@ -55,4 +58,4 @@ const Movie = (props) => {
     </div>);
 }
 
-export default connect(st => ({movies: st.movies}), actions)(Movie);
+export default connect(st => ({movies: st.movieReducer.movies, displayFavorites: st.movieReducer.displayFavorites}), actions)(Movie);

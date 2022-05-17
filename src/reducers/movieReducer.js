@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log(state.movies)
+
     switch(action.type) {
         case DELETE_MOVIE:
             return {
